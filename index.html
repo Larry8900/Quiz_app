@@ -5,90 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</head>
 <body>
-    <div class="start_btn">
-        <button>Start Quiz</button>
+
+<body>
+
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <!-- START SCREEN -->
+  <div id="start-screen" class="screen active">
+    <div class="logo-mark">⚡</div>
+    <div>
+      <div class="start-title">Larry <span>Quiz</span></div>
+      <p class="start-sub">Test your knowledge. Beat the clock. Prove yourself.</p>
     </div>
+    <button class="btn btn-primary btn-large" id="start-btn">Start Quiz →</button>
+  </div>
 
-    <div class="info-box">
-        <div class="info_title">
-            <span>Some Rules of this Quiz</span>
+  <!-- INFO / RULES SCREEN -->
+  <div id="info-screen" class="screen">
+    <div class="card">
+      <div class="card-header">📋 &nbsp;Quiz Rules</div>
+      <div class="rules-list">
+        <div class="rule-item">
+          <div class="rule-num">01</div>
+          <div class="rule-text">You have only <b>15 seconds</b> per question.</div>
         </div>
-        <div class="info_list">
-            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
-            <div class="info">2. You can't change your answer once selected.</div>
-            <div class="info">3. You will get points for each correct answer.</div>
-            <div class="info">4. There are no negative points for wrong answers.</div>
-            <div class="info">5. You must complete the quiz within the time limit.</div>
+        <div class="rule-item">
+          <div class="rule-num">02</div>
+          <div class="rule-text">You <b>cannot change</b> your answer once selected.</div>
         </div>
-        <div class="buttons">
-            <button class="quit">Exit Quiz</button>
-            <button class="restart">Continue</button>   
+        <div class="rule-item">
+          <div class="rule-num">03</div>
+          <div class="rule-text">You earn <b>1 point</b> for every correct answer.</div>
         </div>
-    </div>
-
-    <!-- Quiz box -->
-     <div class="quiz-box">
-        <header>
-            <div class="title">Larry Quiz Application</div>
-            <div class="timer">
-                <div class="timer-text">Time Left</div>
-                <div class="timer-sec">15</div>
-            </div>
-        </header>
-        <section>
-            <div class="que-text">
-                <span>What  does HTML stand for?</span>
-            </div>
-            <div class="option-list">
-                <div class="option">
-                    <span>Hyper Text Preprocessor</span>
-                    <div class="icon tick"><i class="fas fa-check"></i></div>
-                </div>
-                <div class="option">
-                    <span>Hyper Text Markup Language</span>
-                    <div class="icon cross"><i class="fas fa-times"></i></div>
-                </div>
-                <div class="option">
-                    <span>Hyper Text Multiple Language</span>
-                </div>
-                <div class="option">
-                    <span>Hyper Text Multi Language</span>
-                </div>
-            </div>
-        </section>
-
-        <!--Quiz Box Footer-->
-        <footer>
-            <div class="total-que">
-                <span>2 <p>Of</p><p>5</p>Questions</span>
-            </div>
-            <button class="next-btn">Next Question</button>
-        </footer>
-
-     </div>
-
-     <!-- Result Box-->
-      <div class="result-box">
-        <div class="icon">
-            <i class="fas fa-crown"></i>
+        <div class="rule-item">
+          <div class="rule-num">04</div>
+          <div class="rule-text"><b>No negative marking</b> for wrong answers.</div>
         </div>
-        <div class="complete-text">You've completed the Quiz</div>
-        <div class="score-text">
-            <span>and sorry, You got only <p>2</p>out of <p>5</p> questions correct</span>
-        </div>
-        <div class="button">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>
+        <div class="rule-item">
+          <div class="rule-num">05</div>
+          <div class="rule-text">If time runs out, the question is marked <b>incorrect</b>.</div>
         </div>
       </div>
-    
+      <div class="card-footer">
+        <button class="btn btn-ghost" id="exit-btn">← Exit</button>
+        <button class="btn btn-primary" id="continue-btn">Let's Go →</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- QUIZ SCREEN -->
+  <div id="quiz-screen" class="screen">
+    <div class="quiz-header">
+      <div class="q-counter">Question <span id="q-current">1</span> of <span id="q-total">5</span></div>
+      <div class="timer-pill" id="timer-pill">
+        <span class="timer-icon">⏱</span>
+        <span id="timer-display">15</span>s
+      </div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+    <div class="question-text" id="question-text"></div>
+    <div class="options-list" id="options-list"></div>
+    <div class="next-btn-wrap">
+      <button class="btn btn-primary" id="next-btn" style="display:none">Next →</button>
+    </div>
+  </div>
 
-
-  <script src="script.js"></script>
+  <!-- RESULT SCREEN -->
+  <div id="result-screen" class="screen">
+    <div class="result-emoji" id="result-emoji">🏆</div>
+    <div class="result-title" id="result-title">Quiz Complete!</div>
+    <div>
+      <div class="score-display"><span id="score-num">0</span>/<span id="score-total">5</span></div>
+      <div class="score-label" id="score-label">questions correct</div>
+    </div>
+    <div class="result-actions">
+      <button class="btn btn-outline" id="quit-btn">Quit</button>
+      <button class="btn btn-primary" id="replay-btn">Play Again →</button>
+    </div>
+  </div>
+  <script type="module" src="script.js"></script>
     
 </body>
 </html>
